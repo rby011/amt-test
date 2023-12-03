@@ -61,6 +61,22 @@ class TestCaseBuilder:
             
             continue
         return test_cases
+
+    def __build_unittestcases_mt(self, test_suites):
+        test_cases = []
+        attrs = []
+        for suite in test_suites:
+            
+            continue
+        return test_cases
+
+    def __build_inttcases_mt(self, test_suites):
+        test_cases = []
+        attrs = []
+        for suite in test_suites:
+            
+            continue
+        return test_cases
     
     def build_testcases(self):
         try:
@@ -70,30 +86,34 @@ class TestCaseBuilder:
 
             # plan 에 있는 suite id 제외            
             valid_suites = [suite for suite in suites if suite['id'] not in plan['suites-excluded']]
+
+            # testcase list
+            testcases = []
             
-            # eut 별로 Unit Test Case 생성
+            # eut 별로 unit testcase 생성
+            if 'UNIT' in plan['test-types']:
+                if 'ASR-FULL' in plan['euts']:
+                    testcases.append(self.__build_unittestcases_asr(valid_suites))
+                if 'ASR-ONLY' in plan['euts']:
+                    testcases.append(self.__build_unittestcases_asr(valid_suites))
+                if 'MT' in plan['euts']:
+                    testcases.append(self.__build_unittestcases_asr(valid_suites))
             
-            # Integration Test Case 생성            
+            # integration testcase 생성            
+            if 'UNIT' in plan['test-types']:
+                testcases.append(self.__build_inttcases_mt(valid_suites))
             
-            # {'euts': ['MT', 'ASR-FULL'],
-            #  'result-analysis': ['BASIC'],
-            #  'suites-excluded': ['851053494477425262-wa-MC-noisy_environment'],
-            #  'test-types': ['UNIT', 'INTEGRATION']}            
-            # pprint(plan)                
-                        
-                      
+            return testcases                      
         except FileNotFoundError as fe:
             print("File path is invalid. Error:", fe)
             traceback.print_exc()
-            return
         except json.JSONDecodeError as ve:
             print("JSON data is invalid. Error:", ve)
             traceback.print_exc()
-            return
         except Exception as ee:
             print("Error:", ve)
             traceback.print_exc()
-            return
+        return None
         
 testsuite_path = 'testsuite-sample.json'
 testsuite_sheme_path = './schema/testsuite-schema.json'
