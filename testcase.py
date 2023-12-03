@@ -5,11 +5,9 @@ import json
 import traceback
 
 class TestCase(ABC):
-    def __init__(self, testcase_id, testsuite_id, test_level, test_module):
+    def __init__(self, testcase_id, testsuite_id):
         self.testcase_id = testcase_id
         self.testsuite_id = testsuite_id
-        self.test_level = test_level
-        self.test_module = test_module
 
     def list_attributes(self):
         pprint(self.__dict__)
@@ -44,7 +42,9 @@ class TestCaseBuilder:
         self.test_plan_filepath = test_plan_filepath
         self.test_suite_scheme_filepath = test_suite_scheme_filepath
         self.test_plan_schem_filepath = test_plan_schem_filepath
-    
+        self.test_cases = {}
+        self.tc_id = 1
+                
     def __loadwithvalidate(self, file_path, scheme_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -54,28 +54,23 @@ class TestCaseBuilder:
             validate(instance=d, schema=scheme)
         return data
 
-    def __build_unittestcases_asr(self, test_suites):
+    def __make_test_case_id(self, test_type, eut):
+        id = self.tc_id
+        self.tc_id += 1
+        return f"{test_type}-{eut}-{id:04}"
+    
+    def __build_unittestcases(self, test_suites, eut):
         test_cases = []
         attrs = []
         for suite in test_suites:
-            
-            continue
-        return test_cases
-
-    def __build_unittestcases_mt(self, test_suites):
-        test_cases = []
-        attrs = []
-        for suite in test_suites:
-            
-            continue
+            testcase_id = self.__make_test_case_id()
         return test_cases
 
     def __build_inttcases_mt(self, test_suites):
         test_cases = []
         attrs = []
         for suite in test_suites:
-            
-            continue
+            pass # TODO
         return test_cases
     
     def build_testcases(self):
@@ -87,23 +82,29 @@ class TestCaseBuilder:
             # plan 에 있는 suite id 제외            
             valid_suites = [suite for suite in suites if suite['id'] not in plan['suites-excluded']]
 
-            # testcase list
-            testcases = []
-            
-            # eut 별로 unit testcase 생성
-            if 'UNIT' in plan['test-types']:
-                if 'ASR-FULL' in plan['euts']:
-                    testcases.append(self.__build_unittestcases_asr(valid_suites))
-                if 'ASR-ONLY' in plan['euts']:
-                    testcases.append(self.__build_unittestcases_asr(valid_suites))
-                if 'MT' in plan['euts']:
-                    testcases.append(self.__build_unittestcases_asr(valid_suites))
-            
-            # integration testcase 생성            
-            if 'UNIT' in plan['test-types']:
-                testcases.append(self.__build_inttcases_mt(valid_suites))
-            
-            return testcases                      
+            # plan : euts , result-analysis, suites-excluded, type-types
+            # ASR : testcase-id, testsuite-id, audio-file-path, script-file-path, src-lang
+            # MT : testcase-id, testsuite-id,src-lang, dst-lang, src-text-file-path, ref-text-file-paths
+            for suite in valid_suites:
+                if 'UNIT' in plan['test-types']:
+                    if 'ASR-FULL' in plan['euts']:
+                        testcase_id = self.__make_test_case_id('UNIT','ASR-FULL')
+                        testsuite_id = suite['id']
+                        audio_file_path = suite['voice']['file_path']
+                        script_file_path = suite['script']['file_path']
+                        src_lang = suite['script']['language']
+                        testcase = UnitASRTestCase(testcase_id, testsuite_id, audio_file_path, script_file_path, src_lang)    
+                        self.test_cases[testcase_id] = testcase
+                    if 'MT' in plan['euts']:
+                        testcase_id = self.__make_test_case_id('UNIT','ASR-FULL')
+                        testsuite_id = suite['id']
+                        src_lang = suite['script']['language']
+                        dst_lang = suite['translations'][0]['language']
+                        src_text_file_path = suite['script']['file_path']
+                        ref_text_file_paths =[tr['file_path'] for tr in suite['translations']]
+                        testcase = UnitMTTestCase(testcase_id, testsuite_id, src_lang, dst_lang, src_text_file_path, ref_text_file_paths)
+                        self.test_cases[testcase_id] = testcase
+            return self.test_cases
         except FileNotFoundError as fe:
             print("File path is invalid. Error:", fe)
             traceback.print_exc()
@@ -126,4 +127,5 @@ tcbuilder = TestCaseBuilder(test_plan_filepath=testplan_path,
                             test_suite_filepath=testsuite_path, 
                             test_suite_scheme_filepath=testsuite_sheme_path)
 
-tcbuilder.build_testcases()
+testcases = tcbuilder.build_testcases()
+
