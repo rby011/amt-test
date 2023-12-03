@@ -1,0 +1,12 @@
+[
+    {
+        "test-types": [
+            "UNIT"
+        ],
+        "suites-excluded": [],
+        "euts": [
+            "MT"
+        ],
+        "result-analysis": []
+    }
+]

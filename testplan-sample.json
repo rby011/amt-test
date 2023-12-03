@@ -1,0 +1,12 @@
+[
+    {
+        "test-types": [
+            "UNIT", "INTEGRATION"
+        ],
+        "suites-excluded": ["7-cy-KY-shielded_environment"],
+        "euts": [
+            "MT", "ASR-FULL"
+        ],
+        "result-analysis": ["BASIC"]
+    }
+]

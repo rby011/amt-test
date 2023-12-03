@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "test-types": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": ["UNIT", "INTEGRATION", "COMPARE"]
+            },
+            "minItems": 1,
+            "maxItems": 3,
+            "uniqueItems": true
+        },
+        "suites-excluded": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 0,
+            "uniqueItems": true
+        },
+        "euts": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": ["MT", "ASR-FULL", "ASR-ONLY"]
+            },
+            "minItems": 1,
+            "maxItems": 3,
+            "uniqueItems": true
+        },
+        "result-analysis": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": ["BASIC", "COMPOSITION", "EXTRACTION"]
+            },
+            "minItems": 0,
+            "maxItems": 3,
+            "uniqueItems": true
+        }
+    },
+    "required": ["test-types", "euts"]
+}

@@ -1,0 +1,157 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "pattern": "^\\d+-[a-z]{2}-[A-Z]{2}-((shielded_environment)|(noisy_environment))$",
+            "description": "Unique identifier for each record, formatted as 'sequence_number-language-recording_condition'."
+        },
+        "usage_scenario": {
+            "type": "string",
+            "enum": [
+                "call",
+                "meeting",
+                "presentation",
+                "etc"
+            ],
+            "description": "Describes the scenario in which the audio was recorded, like 'call', 'meeting', etc."
+        },
+        "voice": {
+            "type": "object",
+            "description": "Contains properties related to the voice recording.",
+            "properties": {
+                
+                "file_path": {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9]{1,5}\\.pcm$",
+                    "description": "The file path of the voice recording."
+                },
+                "language": {
+                    "type": "string",
+                    "pattern": "^[a-z]{2}-[A-Z]{2}$",
+                    "description": "Language of the voice recording, following ISO standard format."
+                },
+                "recording_condition": {
+                    "type": "string",
+                    "enum": [
+                        "shielded_environment",
+                        "noisy_environment"
+                    ],
+                    "description": "Environment in which the recording was made, e.g., 'shielded_environment', 'noisy_environment'."
+                },
+                "file_format": {
+                    "type": "string",
+                    "enum": [
+                        "PCM",
+                        "WAV"
+                    ],
+                    "description": "Format of the audio file, such as 'PCM', 'WAV'."
+                },
+                "sampling_rate": {
+                    "type": "number",
+                    "description": "Sampling rate of the audio recording."
+                },
+                "bit_depth": {
+                    "type": "number",
+                    "description": "Bit depth of the audio recording."
+                },
+                "play_time": {
+                    "type": "number",
+                    "description": "Total play time of the recording in seconds."
+                },
+                "speech_time": {
+                    "type": "number",
+                    "description": "Duration of the actual speech in the recording in seconds."
+                }
+            },
+            "required": [
+                "file_path",
+                "language",
+                "recording_condition",
+                "file_format",
+                "sampling_rate",
+                "bit_depth",
+                "play_time",
+                "speech_time"
+            ]
+        },
+        "script": {
+            "type": "object",
+            "description": "Contains information about the script corresponding to the voice recording.",
+            "properties": {
+                "file_path": {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9]{1,5}\\.txt$",
+                    "description": "The file path of the script."
+                },
+                "language": {
+                    "type": "string",
+                    "pattern": "^[a-z]{2}-[A-Z]{2}$",
+                    "description": "Language of the script, following ISO standard format."
+                },
+                "style": {
+                    "type": "string",
+                    "enum": [
+                        "spoken",
+                        "written",
+                        "mixed"
+                    ],
+                    "description": "Style of the script, e.g., 'spoken', 'written', 'mixed'."
+                },
+                "sentence_length": {
+                    "type": "integer",
+                    "description": "Length of the sentences in the script, including spaces."
+                },
+                "token_count": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Number of tokens (words) in the script. Optional field."
+                }
+            },
+            "required": [
+                "file_path",
+                "language",
+                "style",
+                "sentence_length",
+                "token_count"
+            ]
+        },
+        "translations": {
+            "type": "array",
+            "description": "Contains translation information for the script in different languages.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9]{1,5}\\.txt$",
+                        "description": "The file path of the translation."
+                    },
+                    "language": {
+                        "type": "string",
+                        "pattern": "^[a-z]{2}-[A-Z]{2}$",
+                        "description": "Language of the translation, following ISO standard format."
+                    },
+                    "sentence_length": {
+                        "type": "integer",
+                        "description": "Length of the sentences in the translation, including spaces."
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "language",
+                    "sentence_length"
+                ]
+            },
+            "minItems": 3
+        }
+    },
+    "required": [
+        "id",
+        "usage_scenario",
+        "voice",
+        "script",
+        "translations"
+    ]
+}

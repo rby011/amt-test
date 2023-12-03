@@ -1,0 +1,382 @@
+[
+    {
+        "id": "1315835949364047-cu-JF-shielded_environment",
+        "usage_scenario": "call",
+        "voice": {
+            "file_path": "I1NQ.pcm",
+            "language": "ee-YS",
+            "recording_condition": "noisy_environment",
+            "file_format": "WAV",
+            "sampling_rate": 2.0,
+            "bit_depth": 78.0,
+            "play_time": 44.0,
+            "speech_time": 57.0
+        },
+        "script": {
+            "file_path": "ez.txt",
+            "language": "zn-PV",
+            "style": "mixed",
+            "sentence_length": 32,
+            "token_count": 64
+        },
+        "translations": [
+            {
+                "file_path": "Cm.txt",
+                "language": "dx-VE",
+                "sentence_length": 97
+            },
+            {
+                "file_path": "6.txt",
+                "language": "gd-BF",
+                "sentence_length": 21
+            },
+            {
+                "file_path": "H1wU.txt",
+                "language": "pg-DY",
+                "sentence_length": 81
+            }
+        ]
+    },
+    {
+        "id": "851053494477425262-wa-MC-noisy_environment",
+        "usage_scenario": "presentation",
+        "voice": {
+            "file_path": "vI1Q.pcm",
+            "language": "vn-BN",
+            "recording_condition": "shielded_environment",
+            "file_format": "WAV",
+            "sampling_rate": 67.0,
+            "bit_depth": 53.0,
+            "play_time": 3.0,
+            "speech_time": 82.0
+        },
+        "script": {
+            "file_path": "ojB.txt",
+            "language": "eg-GO",
+            "style": "written",
+            "sentence_length": 12,
+            "token_count": 30
+        },
+        "translations": [
+            {
+                "file_path": "w.txt",
+                "language": "cy-DE",
+                "sentence_length": 86
+            },
+            {
+                "file_path": "B.txt",
+                "language": "mx-ES",
+                "sentence_length": 61
+            },
+            {
+                "file_path": "C9LU4.txt",
+                "language": "zo-GI",
+                "sentence_length": 4
+            }
+        ]
+    },
+    {
+        "id": "96-dt-TI-noisy_environment",
+        "usage_scenario": "presentation",
+        "voice": {
+            "file_path": "5WE.pcm",
+            "language": "gv-BB",
+            "recording_condition": "shielded_environment",
+            "file_format": "WAV",
+            "sampling_rate": 90.0,
+            "bit_depth": 16.0,
+            "play_time": 58.0,
+            "speech_time": 39.0
+        },
+        "script": {
+            "file_path": "I.txt",
+            "language": "fm-JI",
+            "style": "mixed",
+            "sentence_length": 32,
+            "token_count": 48
+        },
+        "translations": [
+            {
+                "file_path": "sUa1n.txt",
+                "language": "vn-DY",
+                "sentence_length": 86
+            },
+            {
+                "file_path": "1n8Hz.txt",
+                "language": "sd-CF",
+                "sentence_length": 62
+            },
+            {
+                "file_path": "4j.txt",
+                "language": "lo-RM",
+                "sentence_length": 45
+            }
+        ]
+    },
+    {
+        "id": "78042323-wy-RD-noisy_environment",
+        "usage_scenario": "meeting",
+        "voice": {
+            "file_path": "hBBk.pcm",
+            "language": "wy-OD",
+            "recording_condition": "shielded_environment",
+            "file_format": "WAV",
+            "sampling_rate": 70.0,
+            "bit_depth": 15.0,
+            "play_time": 27.0,
+            "speech_time": 82.0
+        },
+        "script": {
+            "file_path": "kAQVO.txt",
+            "language": "bf-BP",
+            "style": "mixed",
+            "sentence_length": 48,
+            "token_count": 95
+        },
+        "translations": [
+            {
+                "file_path": "I.txt",
+                "language": "xt-HT",
+                "sentence_length": 47
+            },
+            {
+                "file_path": "4W1BM.txt",
+                "language": "ks-OX",
+                "sentence_length": 62
+            },
+            {
+                "file_path": "Yc.txt",
+                "language": "tp-SN",
+                "sentence_length": 84
+            }
+        ]
+    },
+    {
+        "id": "669067974598-wx-YN-shielded_environment",
+        "usage_scenario": "meeting",
+        "voice": {
+            "file_path": "Owbvo.pcm",
+            "language": "nz-LR",
+            "recording_condition": "noisy_environment",
+            "file_format": "PCM",
+            "sampling_rate": 92.0,
+            "bit_depth": 60.0,
+            "play_time": 9.0,
+            "speech_time": 94.0
+        },
+        "script": {
+            "file_path": "R2AQj.txt",
+            "language": "em-GF",
+            "style": "spoken",
+            "sentence_length": 17,
+            "token_count": 77
+        },
+        "translations": [
+            {
+                "file_path": "seup.txt",
+                "language": "pg-YX",
+                "sentence_length": 60
+            },
+            {
+                "file_path": "Piio.txt",
+                "language": "jd-KK",
+                "sentence_length": 5
+            },
+            {
+                "file_path": "2Pe.txt",
+                "language": "vw-HM",
+                "sentence_length": 56
+            }
+        ]
+    },
+    {
+        "id": "3-uy-IT-shielded_environment",
+        "usage_scenario": "presentation",
+        "voice": {
+            "file_path": "C.pcm",
+            "language": "el-FN",
+            "recording_condition": "noisy_environment",
+            "file_format": "PCM",
+            "sampling_rate": 25.0,
+            "bit_depth": 87.0,
+            "play_time": 81.0,
+            "speech_time": 55.0
+        },
+        "script": {
+            "file_path": "N.txt",
+            "language": "ab-YL",
+            "style": "spoken",
+            "sentence_length": 67,
+            "token_count": 17
+        },
+        "translations": [
+            {
+                "file_path": "V9.txt",
+                "language": "gq-DA",
+                "sentence_length": 43
+            },
+            {
+                "file_path": "0nH.txt",
+                "language": "za-UQ",
+                "sentence_length": 48
+            },
+            {
+                "file_path": "u1.txt",
+                "language": "iz-ES",
+                "sentence_length": 2
+            }
+        ]
+    },
+    {
+        "id": "5014125542-xe-CP-shielded_environment",
+        "usage_scenario": "meeting",
+        "voice": {
+            "file_path": "ZRdzC.pcm",
+            "language": "el-MS",
+            "recording_condition": "noisy_environment",
+            "file_format": "WAV",
+            "sampling_rate": 36.0,
+            "bit_depth": 36.0,
+            "play_time": 77.0,
+            "speech_time": 58.0
+        },
+        "script": {
+            "file_path": "Wi34O.txt",
+            "language": "pe-IW",
+            "style": "written",
+            "sentence_length": 82,
+            "token_count": 24
+        },
+        "translations": [
+            {
+                "file_path": "Ro7Mg.txt",
+                "language": "xy-SR",
+                "sentence_length": 56
+            },
+            {
+                "file_path": "4.txt",
+                "language": "gj-HB",
+                "sentence_length": 67
+            },
+            {
+                "file_path": "Jy.txt",
+                "language": "ye-OH",
+                "sentence_length": 78
+            }
+        ]
+    },
+    {
+        "id": "7-cy-KY-shielded_environment",
+        "usage_scenario": "etc",
+        "voice": {
+            "file_path": "v0VI.pcm",
+            "language": "cu-HN",
+            "recording_condition": "noisy_environment",
+            "file_format": "PCM",
+            "sampling_rate": 28.0,
+            "bit_depth": 32.0,
+            "play_time": 86.0,
+            "speech_time": 19.0
+        },
+        "script": {
+            "file_path": "04y.txt",
+            "language": "go-QO",
+            "style": "spoken",
+            "sentence_length": 22,
+            "token_count": 66
+        },
+        "translations": [
+            {
+                "file_path": "1Kwo.txt",
+                "language": "me-TN",
+                "sentence_length": 86
+            },
+            {
+                "file_path": "0.txt",
+                "language": "sj-XB",
+                "sentence_length": 49
+            },
+            {
+                "file_path": "R8.txt",
+                "language": "te-VJ",
+                "sentence_length": 60
+            }
+        ]
+    },
+    {
+        "id": "131300470624-ho-QK-shielded_environment",
+        "usage_scenario": "meeting",
+        "voice": {
+            "file_path": "a.pcm",
+            "language": "vb-RH",
+            "recording_condition": "shielded_environment",
+            "file_format": "WAV",
+            "sampling_rate": 80.0,
+            "bit_depth": 75.0,
+            "play_time": 44.0,
+            "speech_time": 89.0
+        },
+        "script": {
+            "file_path": "Fm.txt",
+            "language": "eu-UO",
+            "style": "mixed",
+            "sentence_length": 66,
+            "token_count": 55
+        },
+        "translations": [
+            {
+                "file_path": "fNnE.txt",
+                "language": "iv-OV",
+                "sentence_length": 7
+            },
+            {
+                "file_path": "yN.txt",
+                "language": "aq-PC",
+                "sentence_length": 23
+            },
+            {
+                "file_path": "iK1P.txt",
+                "language": "va-ON",
+                "sentence_length": 100
+            }
+        ]
+    },
+    {
+        "id": "5-ie-NP-noisy_environment",
+        "usage_scenario": "call",
+        "voice": {
+            "file_path": "S3hQ.pcm",
+            "language": "ud-HL",
+            "recording_condition": "noisy_environment",
+            "file_format": "PCM",
+            "sampling_rate": 62.0,
+            "bit_depth": 56.0,
+            "play_time": 48.0,
+            "speech_time": 76.0
+        },
+        "script": {
+            "file_path": "w5t1z.txt",
+            "language": "ty-CO",
+            "style": "mixed",
+            "sentence_length": 25,
+            "token_count": 68
+        },
+        "translations": [
+            {
+                "file_path": "FzcFI.txt",
+                "language": "sx-TT",
+                "sentence_length": 63
+            },
+            {
+                "file_path": "fqY.txt",
+                "language": "ly-LH",
+                "sentence_length": 74
+            },
+            {
+                "file_path": "wPJC.txt",
+                "language": "di-CK",
+                "sentence_length": 56
+            }
+        ]
+    }
+]
