@@ -8,9 +8,8 @@ class TestCase(ABC):
     def __init__(self, testcase_id, testsuite_id):
         self.testcase_id = testcase_id
         self.testsuite_id = testsuite_id
-
-    def list_attributes(self):
-        pprint(self.__dict__)
+    def __str__(self):
+        return json.dumps(self.__dict__)
     
 class UnitASRTestCase(TestCase):
     def __init__(self, testcase_id, testsuite_id, audio_file_path, script_file_path, src_lang):
@@ -73,7 +72,7 @@ class TestCaseBuilder:
             pass # TODO
         return test_cases
     
-    def build_testcases(self):
+    def build_testcases(self) -> dict[str:TestCase]:
         try:
             # test suite , test plan 로딩
             suites = self.__loadwithvalidate(self.test_suite_filepath, self.test_suite_scheme_filepath)
@@ -93,10 +92,10 @@ class TestCaseBuilder:
                         audio_file_path = suite['voice']['file_path']
                         script_file_path = suite['script']['file_path']
                         src_lang = suite['script']['language']
-                        testcase = UnitASRTestCase(testcase_id, testsuite_id, audio_file_path, script_file_path, src_lang)    
+                        testcase = UnitASRTestCase(testcase_id, testsuite_id, audio_file_path, script_file_path, src_lang)
                         self.test_cases[testcase_id] = testcase
                     if 'MT' in plan['euts']:
-                        testcase_id = self.__make_test_case_id('UNIT','ASR-FULL')
+                        testcase_id = self.__make_test_case_id('UNIT','MT')
                         testsuite_id = suite['id']
                         src_lang = suite['script']['language']
                         dst_lang = suite['translations'][0]['language']
@@ -115,7 +114,7 @@ class TestCaseBuilder:
             print("Error:", ve)
             traceback.print_exc()
         return None
-        
+
 testsuite_path = 'testsuite-sample.json'
 testsuite_sheme_path = './schema/testsuite-schema.json'
 
@@ -128,4 +127,6 @@ tcbuilder = TestCaseBuilder(test_plan_filepath=testplan_path,
                             test_suite_scheme_filepath=testsuite_sheme_path)
 
 testcases = tcbuilder.build_testcases()
-
+for testcase_id, testcase in testcases.items():
+    print(testcase_id)
+    print(testcase)

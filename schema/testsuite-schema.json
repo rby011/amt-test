@@ -17,20 +17,24 @@
             ],
             "description": "Describes the scenario in which the audio was recorded, like 'call', 'meeting', etc."
         },
+        "src_lang": {
+            "type": "string",
+            "pattern": "^[a-z]{2}-[A-Z]{2}$",
+            "description": "Language of the voice recording, following ISO standard format."
+        },
+        "dst_lang": {
+            "type": "string",
+            "pattern": "^[a-z]{2}-[A-Z]{2}$",
+            "description": "Language of the voice recording, following ISO standard format."
+        },
         "voice": {
             "type": "object",
             "description": "Contains properties related to the voice recording.",
             "properties": {
-                
                 "file_path": {
                     "type": "string",
                     "pattern": "^[a-zA-Z0-9]{1,5}\\.pcm$",
                     "description": "The file path of the voice recording."
-                },
-                "language": {
-                    "type": "string",
-                    "pattern": "^[a-z]{2}-[A-Z]{2}$",
-                    "description": "Language of the voice recording, following ISO standard format."
                 },
                 "recording_condition": {
                     "type": "string",
@@ -67,7 +71,6 @@
             },
             "required": [
                 "file_path",
-                "language",
                 "recording_condition",
                 "file_format",
                 "sampling_rate",
@@ -84,11 +87,6 @@
                     "type": "string",
                     "pattern": "^[a-zA-Z0-9]{1,5}\\.txt$",
                     "description": "The file path of the script."
-                },
-                "language": {
-                    "type": "string",
-                    "pattern": "^[a-z]{2}-[A-Z]{2}$",
-                    "description": "Language of the script, following ISO standard format."
                 },
                 "style": {
                     "type": "string",
@@ -111,7 +109,6 @@
             },
             "required": [
                 "file_path",
-                "language",
                 "style",
                 "sentence_length",
                 "token_count"
@@ -128,11 +125,6 @@
                         "pattern": "^[a-zA-Z0-9]{1,5}\\.txt$",
                         "description": "The file path of the translation."
                     },
-                    "language": {
-                        "type": "string",
-                        "pattern": "^[a-z]{2}-[A-Z]{2}$",
-                        "description": "Language of the translation, following ISO standard format."
-                    },
                     "sentence_length": {
                         "type": "integer",
                         "description": "Length of the sentences in the translation, including spaces."
@@ -140,7 +132,6 @@
                 },
                 "required": [
                     "file_path",
-                    "language",
                     "sentence_length"
                 ]
             },
@@ -150,6 +141,8 @@
     "required": [
         "id",
         "usage_scenario",
+        "src_lang",
+        "dst_lang",
         "voice",
         "script",
         "translations"
