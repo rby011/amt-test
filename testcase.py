@@ -52,7 +52,7 @@ class UnitMTTestCase(TestCase):
                 fpath = os.path.join(self.sample_dir, self.testsuite_id)
                 fpath = os.path.join(fpath, translation['file_path'])
                 with open(fpath,'r') as f:
-                    txt_lines = f.readlines()
+                    txt_lines = f.readline()
                 ref_texts.append(txt_lines)
             self.ref_texts = ref_texts
         except FileNotFoundError as fe:
@@ -73,7 +73,7 @@ class IntTestCase(TestCase):
         for key, value in testsuite['translations'].items():
             if key == 'file_path':
                 with open(key,'r') as f:
-                    txt_lines = f.readlines()
+                    txt_lines = f.readline()
                 ref_texts.append(txt_lines)
             self.ref_texts = ref_texts
     
@@ -155,6 +155,9 @@ class TestCaseBuilder:
             traceback.print_exc()
         return None
 
+#
+# simple test
+#
 testsuite_path = 'testsuite-sample.json'
 testsuite_sheme_path = './schema/testsuite-schema.json'
 
@@ -169,4 +172,4 @@ tcbuilder = TestCaseBuilder(testplan_filepath=testplan_path,
 testcases = tcbuilder.build_testcases('sample')
 for testcase_id, testcase in testcases.items():
     print(testcase_id, isinstance(testcase, UnitMTTestCase))
-    print(testcase)
+    print(json.dumps(testcase.__dict__,indent=4))
