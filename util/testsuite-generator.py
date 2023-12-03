@@ -42,7 +42,7 @@ def generate_sample_testfiles(data, sample_root):
             if(key == 'file_path'):
                 print(f"\t{key}: {str(value).rjust(20)}")
                 with open(os.path.join(sample_dir_path, value), 'w') as f:
-                    f.write('this is test') 
+                    f.write(f'this is {key} for test') 
                     
 
 # sample 만들기
