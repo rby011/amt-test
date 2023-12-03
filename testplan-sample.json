@@ -3,10 +3,10 @@
         "test-types": [
             "UNIT", "INTEGRATION"
         ],
-        "suites-excluded": ["7-cy-KY-shielded_environment"],
+        "suites-excluded": ["30966057755-sz-FI-shielded_environment"],
         "euts": [
-            "MT", "ASR-FULL"
+            "ASR-FULL", "MT"
         ],
-        "result-analysis": ["BASIC"]
+        "result-analysis": []
     }
 ]

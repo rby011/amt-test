@@ -1,11 +1,11 @@
 [
     {
         "test-types": [
-            "UNIT"
+            "UNIT", "INTEGRATION"
         ],
-        "suites-excluded": [],
+        "suites-excluded": ["30966057755-sz-FI-shielded_environment"],
         "euts": [
-            "MT"
+            "ASR=FULL", "MT"
         ],
         "result-analysis": []
     }
