@@ -1,0 +1,45 @@
+1.1 The elevator has been around for ten years.
+1.2 It's been a decade since the elevator was installed.
+1.3 This elevator has been in operation for ten years.
+2.1 Won't you go away?
+2.2 Why don't you leave?
+2.3 Aren't you going to move away?
+3.1 One of the undergraduate students stepped forward and asked.
+3.2 A student from the undergraduate group came forward to inquire.
+3.3 Among the undergraduates, one person stepped up to ask.
+4.1 Minsu pushed the money from his wallet towards Deokho.
+4.2 Minsu slid the money out of his wallet and pushed it in front of Deokho.
+4.3 From his wallet, Minsu took out some money and placed it in front of Deokho.
+5.1 "We should stop here, why bother coming all the way here?"
+5.2 "We might as well stop, why did you even come here?"
+5.3 "It's time to stop, why did you come here unnecessarily?"
+6.1 He was surprised to see that the person he was looking for turned out to be his friend.
+6.2 To his surprise, he realized the person he was seeking was his comrade.
+6.3 On a closer look, he was astonished to find that it was the friend he was searching for.
+7.1 Shincheol walked into the room, smelling something old-fashioned and intense.
+7.2 Entering the room, Shincheol sensed a strong, outdated smell.
+7.3 Shincheol entered the room, overwhelmed by an intense, antiquated odor.
+8.1 Youngshin's jacket was worn like a scrubbing brush, and her skirt pleats were completely flattened.
+8.2 The state of Youngshin's jacket resembled a scrubber, with her skirt pleats utterly flattened.
+8.3 Youngshin's jacket looked as worn as a scrubber, and her skirt's pleats were all smoothed out.
+9.1 They welcomed Youngshin as if she were part of their own family.
+9.2 They received Youngshin warmly, treating her like a family member.
+9.3 Welcoming Youngshin enthusiastically, they treated her as if she were a member of their own family.
+10.1 I will live my youth to the fullest, in a way that I cannot return to in my lifetime.
+10.2 I'm determined to live out my youth fully, a period of my life I'll never get back.
+10.3 I intend to experience my youth to its fullest, knowing these days won't return in my lifetime.
+11.1 Looking out, I saw people rushing about as a fire broke out in a house down the hill.
+11.2 From my view, I noticed a fire at a house below the hill, with people running around in commotion.
+11.3 Observing from afar, I saw a fire ignite in a house below the hill, causing a stir among the people.
+12.1 Fortunately today, I have at least a cigarette butt to smoke, so I don't have to spit out my saliva.
+12.2 Today, luckily, I have a cigarette end to puff on, so I'm not spitting saliva.
+12.3 Today, I'm fortunate to have even a cigarette stub to smoke, saving me from constantly spitting saliva.
+13.1 Even if it's my own flesh and blood, I can't peek into that guy's mind.
+13.2 It's impossible to look into the heart of that person, even if they are of my own flesh.
+13.3 If he were born from my own belly, still, it would be necessary to be able to look inside his mind.
+14.1 When I returned, I found Chunwoo had come, laid out a place to sleep, and was deeply asleep.
+14.2 Upon my return, I discovered Chunwoo had arrived, set up a sleeping spot, and was sound asleep.
+14.3 Coming back, I saw Chunwoo had visited, prepared a bed, and was fast asleep.
+15.1 I will make you and the woman enemies, as well as your descendants and hers.
+15.2 I will ensure enmity between you and the woman, and between your offspring and hers.
+15.3 You and the woman will be enemies, and so will your descendants and hers.
