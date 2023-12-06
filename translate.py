@@ -1,4 +1,5 @@
 import pandas as pd
+from pandas import DataFrame
 import openai, time, re
 from IPython.display import display
 
@@ -55,10 +56,13 @@ def translate_sentences(sentences, model="gpt-4.0-turbo", max_tokens=100):
 
     print("Maximum retry attempts reached. Unable to complete the request.")
     return None
-
-
 file_path = 'path_to_your_file.txt'  # 파일 경로 설정
 batch_size = 50  # 한 번에 처리할 문장 수
+
+####################################################
+#                      UTIL
+####################################################
+
 
 # idf columns
 # ['client_id', 'path', 'sentence', 'up_votes', 'down_votes', 'age',
@@ -78,28 +82,88 @@ for s in sentences:
     ns.append(s)
 sentences = ns
 
-# for i in range(len(sentences)):
-#     print(sentences[i] , " : ", translated[i])
-
 idf = idf.iloc[1:16].copy()
-tdf = pd.DataFrame({'sentence':sentences, 'translated':translated})
+tdf = pd.DataFrame({'sentence':sentences, 'ref':translated})
 
 mdf = pd.merge(left=idf, right=tdf, how='inner', left_on='sentence', right_on='sentence')
 
-mdf.to_excel('output.xlsx')
+####################################################
+#                      UTIL
+####################################################
 
-# odf = pd.DataFrame({'translated':translated})
-# idf = idf.iloc[1:16]
+mdf['transcript'] = None
+mdf['wer'] = None
+mdf['script_file'] = None
+mdf['ref_file'] = None
+mdf['bleu'] = None
 
-# idf_copy = idf.copy()
-# for i in range(len(idf)):
-#     copied_row = idf.iloc[i].copy()
-#     idf_copy = pd.concat([idf_copy.iloc[:i+1], copied_row.to_frame().T, idf_copy.iloc[i+1:]]).reset_index(drop=True)
-#     idf_copy = pd.concat([idf_copy.iloc[:i+1], copied_row.to_frame().T, idf_copy.iloc[i+1:]]).reset_index(drop=True)
+# import os
+# from pydub import AudioSegment
+# clip_root = './cv-corpus-15.0-2023-09-08/ko/clips'
+# for mp3 in mdf['path'].to_list():
+#     mp3_file = os.path.join(clip_root, mp3)
+#     wav_file = os.path.join(clip_root, 'wav')
+#     audio = AudioSegment.from_mp3(mp3_file)
+#     audio.export(wav_file, format='wav')
+# audio = AudioSegment.from_mp3('audio.mp3')
+# audio.export('audio.wav', format='wav')
 
-# # print(idf)
-# # print(idf_copy['path'].value_counts())
 
-# df = pd.concat([idf_copy, odf], axis=1)
+####################################################
+#                    ASR UNIT Test
+####################################################
 
-# print(df.sort_values(by='sentence')[['sentence','translated']])
+# CONVERT INTO WAV
+
+# for each wav file
+
+## ENGINE CALL & LOG PARSING
+
+## MEASURE
+
+## SAVE TRANSCRIP FOR INTEGRATION
+
+
+####################################################
+#                    MT UNIT Test
+####################################################
+n_grp = 5
+n_ref = 3
+n_sentence = mdf['sentence'].nunique()
+setences = []
+refs = []
+mdf = mdf.sort_values(by='sentence').reset_index(drop=True)
+for i in range(n_sentence//n_grp): # 반드시 배수여야 함
+    sidx = i * n_grp * n_ref
+    eidx = sidx + n_grp * n_ref - 1
+    pdf = mdf.loc[sidx:eidx]
+    
+    # record history
+    script_file = f'{i}_mt_script.txt'
+    ref_file = f'{i}_ref_script.txt'
+    mdf.loc[sidx:eidx, 'script_file'] = script_file
+    mdf.loc[sidx:eidx, 'ref_file'] = ref_file
+    
+    # file generation
+    with open(script_file,'w') as f:
+        print('\n'.join(pdf['sentence'].unique().tolist()))
+        # write file
+    with open(ref_file, 'w') as f:
+        print('\n'.join(pdf['ref'].unique().tolist()))
+        # write file
+
+    # ENGINE CALL & LOG PARSING → 2.0
+    
+    mdf.loc[sidx:eidx, 'bleu'] = 2.0 + i
+
+
+####################################################
+#                 INTEGRATION TEST
+####################################################
+
+# MT CALL WITH TRANSCRIPTED BY SAME GROUPING WITH UNIT
+
+
+####################################################
+#                      ANALYSIS
+####################################################
